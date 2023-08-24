@@ -26,7 +26,7 @@ public class Teste4Switch {
 			System.out.println("Sabado");
 			break;
 		case 7:
-			System.out.println("Sabado");
+			System.out.println("Domingo");
 			break;
 		
 		}
