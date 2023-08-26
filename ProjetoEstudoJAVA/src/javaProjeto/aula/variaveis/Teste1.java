@@ -1,27 +1,41 @@
 package javaProjeto.aula.variaveis;
 
+
+import javax.swing.JOptionPane;
+
 public class Teste1 {
-
-	public static void main(String[] args) {
-
-		double nota1 = 40;
-		double nota2 = 20;
-		double nota3 = 0;
-		double nota4 = 20;
-		double nota5 = 100;
-		double media = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
-		String aprovacao2 =  media >=70 ? "aprovado" : media >= 40 ? "de recuperação" : "reprovado" ;
-		System.out.println("Media das notas = " + media);
+	
+	public static Double recebeDouble(String str) {
 		
-		if(media >= 70) {
-			System.out.println("Aluno aprovado.");
-		}else if(media >= 50) {
-			System.out.println("Aluno de recuperação.");
-		}else {
-			System.out.println("Aluno reprovado.");
+		boolean eUmInt = false;
+		String nota = "";
+				
+		while(!eUmInt) {
+			System.out.println("Digite um inteiro.");
+			nota = JOptionPane.showInputDialog(str);
+			eUmInt = nota.matches("[0-9]+");
+			if(!eUmInt) {
+				JOptionPane.showMessageDialog(null, "A nota não é um numero.");
+			}
 		}
 		
-		System.out.println("Segundo critério aluno está " + aprovacao2.toLowerCase() + ".");
+		return Double.valueOf(nota).doubleValue();
+	}
+
+	public static void main(String[] args) {
+		
+		String nome = JOptionPane.showInputDialog("Digite o nome do aluno: ");
+		double nota1 = recebeDouble("Digite a primeira nota do aluno: ");
+		double nota2 = recebeDouble("Digite a segunda nota do aluno: ");
+		double nota3 = recebeDouble("Digite a terceira nota do aluno: ");
+		double nota4 = recebeDouble("Digite a quarta nota do aluno: ");
+		
+		double media = (nota1 + nota2 + nota3 + nota4) / 4;
+		String aprovacao =  media >=70 ? "aprovado" : media >= 40 ? "de recuperação" : "reprovado" ;
+		
+		JOptionPane.showMessageDialog(null, "O Aluno "+ nome +" ficou " + aprovacao + " com a média de " + media + ".");
+		
+		
 	
 	}
 }
