@@ -1,6 +1,9 @@
 package javaProjeto.aula.variaveis;
 
+import java.util.Objects;
+
 public class Aluno {
+	
 	
 	private int idade;
 	private String nome;
@@ -48,6 +51,33 @@ public class Aluno {
 		this.nome = nome;
 		this.idade = idade;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, registrogeral);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(nome, other.nome) && Objects.equals(registrogeral, other.registrogeral);
+	}
+
+	@Override
+	public String toString() {
+		return "Aluno [idade=" + idade + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", registrogeral="
+				+ registrogeral + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula
+				+ ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", nota1=" + nota1
+				+ ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4 + ", media=" + media + ", aprovacaoMin="
+				+ aprovacaoMin + ", recuperacaoMin=" + recuperacaoMin + "]";
+	}
+
 	public String strAprovacao(String aprovacao, String recuperacao, String reprovacao){
 		return media >= aprovacaoMin?aprovacao:media >= recuperacaoMin?recuperacao:reprovacao;
 	}

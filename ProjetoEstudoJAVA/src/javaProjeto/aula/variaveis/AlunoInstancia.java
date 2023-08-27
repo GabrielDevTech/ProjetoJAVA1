@@ -23,6 +23,7 @@ public class AlunoInstancia {
 		
 		
 		Aluno aluno = new Aluno(nome);
+		
 		aluno.setIdade(idade);
 		aluno.setDataMatricula(dataMatricula);
 		aluno.setDataNascimento(dataNascimento);
@@ -37,7 +38,7 @@ public class AlunoInstancia {
 		aluno.setNota4(nota4);
 		aluno.criaMedia();
 		
-		
+		System.out.println(aluno);
 		System.out.println("----------------------------------------------");
 		System.out.println("Dados cadastrais:");
 		System.out.println("Data da matricula: " + aluno.getDataMatricula());
@@ -58,8 +59,16 @@ public class AlunoInstancia {
 		System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
 		System.out.println("----------------------------------------------");
 		
+		Aluno aluno2 = new Aluno(nome);
+		aluno2.setRegistrogeral(registroGeral);
+		
+		if(aluno.equals(aluno2)){
+			System.out.println("E igual os alunos");
+		}else {
+			System.out.println("Nao e igual os alunos");
+		}
 		
 		
 	}
-	
+
 }
