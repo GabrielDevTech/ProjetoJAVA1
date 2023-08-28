@@ -23,6 +23,7 @@ public class AlunoInstancia {
 		
 		
 		Aluno aluno = new Aluno(nome);
+		aluno.setDiciplina(new Diciplina());
 		
 		aluno.setIdade(idade);
 		aluno.setDataMatricula(dataMatricula);
@@ -32,10 +33,15 @@ public class AlunoInstancia {
 		aluno.setNomePai(nomePai);
 		aluno.setRegistrogeral(registroGeral);
 		aluno.setSerieMatriculado(serieMatriculado);
-		aluno.setNota1(nota1);
-		aluno.setNota2(nota2);
-		aluno.setNota3(nota3);
-		aluno.setNota4(nota4);
+		
+		aluno.getDiciplina().setNota1(nota1);
+		aluno.getDiciplina().setNota2(nota2);
+		aluno.getDiciplina().setNota3(nota3);
+		aluno.getDiciplina().setNota4(nota4);
+		aluno.getDiciplina().setDiciplina1("Portugues");
+		aluno.getDiciplina().setDiciplina2("Biologia");
+		aluno.getDiciplina().setDiciplina3("Geografia");
+		aluno.getDiciplina().setDiciplina4("Matematica");;
 		aluno.criaMedia();
 		
 		System.out.println(aluno);
@@ -51,10 +57,14 @@ public class AlunoInstancia {
 		System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
 		System.out.println("----------------------------------------------");
 		System.out.println("Resultado das notas do Aluno");
-		System.out.println("nota 1:" + aluno.getNota1());
-		System.out.println("nota 2:" + aluno.getNota2());
-		System.out.println("nota 3:" + aluno.getNota3());
-		System.out.println("nota 4:" + aluno.getNota4());
+		System.out.println("nota 1:" + aluno.getDiciplina().getNota1());
+		System.out.println("nota 2:" + aluno.getDiciplina().getNota2());
+		System.out.println("nota 3:" + aluno.getDiciplina().getNota3());
+		System.out.println("nota 4:" + aluno.getDiciplina().getNota4());
+		System.out.println("diciplina 1:" + aluno.getDiciplina().getDiciplina1());
+		System.out.println("diciplina 2:" + aluno.getDiciplina().getDiciplina2());
+		System.out.println("diciplina 3:" + aluno.getDiciplina().getDiciplina3());
+		System.out.println("diciplina 4:" + aluno.getDiciplina().getDiciplina4());
 		System.out.println("media: " + aluno.getMedia());
 		System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
 		System.out.println("----------------------------------------------");

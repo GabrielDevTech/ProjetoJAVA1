@@ -14,16 +14,23 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
-	private double nota1;
-	private double nota2;
-	private double nota3;
-	private double nota4;
 	private double media;
 	private final double aprovacaoMin = 70;
 	private final double recuperacaoMin = 50;
+	private Diciplina diciplina;
 	
+	public double getRecuperacaoMin() {
+		return recuperacaoMin;
+	}
 	
-	
+	public Diciplina getDiciplina() {
+		return diciplina;
+	}
+
+	public void setDiciplina(Diciplina diciplina) {
+		this.diciplina = diciplina;
+	}
+
 	public void valorAlunoTeste(){
 		setIdade(23);
 		setDataMatricula("22/08/2022");
@@ -33,10 +40,14 @@ public class Aluno {
 		setNomePai("Leonardo Ribeiro Leandro");
 		setRegistrogeral("5468748496");
 		setSerieMatriculado("oitava");
-		setNota1(22);
-		setNota2(55);
-		setNota3(100);
-		setNota4(100);
+		diciplina.setNota1(22);
+		diciplina.setNota2(55);
+		diciplina.setNota3(100);
+		diciplina.setNota4(100);
+		diciplina.setDiciplina1("Matematica");
+		diciplina.setDiciplina2("Portugues");
+		diciplina.setDiciplina3("Historia");
+		diciplina.setDiciplina4("Fisica");
 		criaMedia();
 	}
 	
@@ -69,13 +80,14 @@ public class Aluno {
 		return Objects.equals(nome, other.nome) && Objects.equals(registrogeral, other.registrogeral);
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Aluno [idade=" + idade + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", registrogeral="
 				+ registrogeral + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula
-				+ ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", nota1=" + nota1
-				+ ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4 + ", media=" + media + ", aprovacaoMin="
-				+ aprovacaoMin + ", recuperacaoMin=" + recuperacaoMin + "]";
+				+ ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", media=" + media
+				+ ", aprovacaoMin=" + aprovacaoMin + ", recuperacaoMin=" + recuperacaoMin + "]";
 	}
 
 	public String strAprovacao(String aprovacao, String recuperacao, String reprovacao){
@@ -83,7 +95,7 @@ public class Aluno {
 	}
 	
 	public double criaMedia(){
-		media = (nota1 + nota2 + nota3 + nota4) / 4;
+		media = (diciplina.getNota1() + diciplina.getNota2() + diciplina.getNota3() + diciplina.getNota4()) / 4;
 		return media;
 	}
 	
@@ -184,37 +196,7 @@ public class Aluno {
 		this.serieMatriculado = serieMatriculado;
 	}
 	
-	public double getNota1() {
-		return nota1;
-	}
-
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
-	}
-
-	public double getNota2() {
-		return nota2;
-	}
-
-	public void setNota2(double nota2) {
-		this.nota2 = nota2;
-	}
-
-	public double getNota3() {
-		return nota3;
-	}
-
-	public void setNota3(double nota3) {
-		this.nota3 = nota3;
-	}
-
-	public double getNota4() {
-		return nota4;
-	}
-
-	public void setNota4(double nota4) {
-		this.nota4 = nota4;
-	}
+	
 	
 	
 }
