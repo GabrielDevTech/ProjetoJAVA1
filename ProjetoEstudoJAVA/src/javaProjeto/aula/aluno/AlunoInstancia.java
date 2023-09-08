@@ -1,4 +1,4 @@
-package javaProjeto.aula.variaveis;
+package javaProjeto.aula.aluno;
 
 import javax.swing.JOptionPane;
 
@@ -16,14 +16,13 @@ public class AlunoInstancia {
 		String nomePai = JOptionPane.showInputDialog("Nome do pai:");
 		String registroGeral = JOptionPane.showInputDialog("Registro geral:");
 		String serieMatriculado = JOptionPane.showInputDialog("Serie:");
-		double nota1 = Double.parseDouble(JOptionPane.showInputDialog("nota 1:"));
-		double nota2 = Double.parseDouble(JOptionPane.showInputDialog("nota 2:"));
-		double nota3 = Double.parseDouble(JOptionPane.showInputDialog("nota 3:"));
-		double nota4 = Double.parseDouble(JOptionPane.showInputDialog("nota 4:"));
-		
+		String numMateriaStr = JOptionPane.showInputDialog("Quantidade de materias");
+		int numMateria = Integer.parseInt(numMateriaStr);
 		
 		Aluno aluno = new Aluno(nome);
-		aluno.setDiciplina(new Diciplina());
+		
+		
+		
 		
 		aluno.setIdade(idade);
 		aluno.setDataMatricula(dataMatricula);
@@ -34,15 +33,18 @@ public class AlunoInstancia {
 		aluno.setRegistrogeral(registroGeral);
 		aluno.setSerieMatriculado(serieMatriculado);
 		
-		aluno.getDiciplina().setNota1(nota1);
-		aluno.getDiciplina().setNota2(nota2);
-		aluno.getDiciplina().setNota3(nota3);
-		aluno.getDiciplina().setNota4(nota4);
-		aluno.getDiciplina().setDiciplina1("Portugues");
-		aluno.getDiciplina().setDiciplina2("Biologia");
-		aluno.getDiciplina().setDiciplina3("Geografia");
-		aluno.getDiciplina().setDiciplina4("Matematica");;
-		aluno.criaMedia();
+		
+		for(int i = 0; i<numMateria; i++) {
+			String diciplinaNome = JOptionPane.showInputDialog("Digite o nome da matéria");
+			String notaStr = JOptionPane.showInputDialog("Digite a nota (de 0 a 100)");
+			
+			double nota = Double.parseDouble(notaStr);
+			
+			Diciplina diciplina = new Diciplina(diciplinaNome, nota);
+			aluno.getDiciplinas().add(diciplina);
+		}
+		
+		
 		
 		System.out.println(aluno);
 		System.out.println("----------------------------------------------");
@@ -57,14 +59,9 @@ public class AlunoInstancia {
 		System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
 		System.out.println("----------------------------------------------");
 		System.out.println("Resultado das notas do Aluno");
-		System.out.println("nota 1:" + aluno.getDiciplina().getNota1());
-		System.out.println("nota 2:" + aluno.getDiciplina().getNota2());
-		System.out.println("nota 3:" + aluno.getDiciplina().getNota3());
-		System.out.println("nota 4:" + aluno.getDiciplina().getNota4());
-		System.out.println("diciplina 1:" + aluno.getDiciplina().getDiciplina1());
-		System.out.println("diciplina 2:" + aluno.getDiciplina().getDiciplina2());
-		System.out.println("diciplina 3:" + aluno.getDiciplina().getDiciplina3());
-		System.out.println("diciplina 4:" + aluno.getDiciplina().getDiciplina4());
+		for(int i = 0; i<aluno.getDiciplinas().size();i++){
+			System.out.println("Diciplina:" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
+		}
 		System.out.println("media: " + aluno.getMedia());
 		System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
 		System.out.println("----------------------------------------------");

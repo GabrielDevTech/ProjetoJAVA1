@@ -1,5 +1,7 @@
-package javaProjeto.aula.variaveis;
+package javaProjeto.aula.aluno;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
@@ -17,18 +19,18 @@ public class Aluno {
 	private double media;
 	private final double aprovacaoMin = 70;
 	private final double recuperacaoMin = 50;
-	private Diciplina diciplina;
+	private List<Diciplina> diciplinas =  new ArrayList<Diciplina>();
 	
 	public double getRecuperacaoMin() {
 		return recuperacaoMin;
 	}
 	
-	public Diciplina getDiciplina() {
-		return diciplina;
+	public List<Diciplina> getDiciplinas() {
+		return diciplinas;
 	}
 
-	public void setDiciplina(Diciplina diciplina) {
-		this.diciplina = diciplina;
+	public void setDiciplina(List<Diciplina> diciplina) {
+		this.diciplinas = diciplina;
 	}
 
 	public void valorAlunoTeste(){
@@ -40,15 +42,8 @@ public class Aluno {
 		setNomePai("Leonardo Ribeiro Leandro");
 		setRegistrogeral("5468748496");
 		setSerieMatriculado("oitava");
-		diciplina.setNota1(22);
-		diciplina.setNota2(55);
-		diciplina.setNota3(100);
-		diciplina.setNota4(100);
-		diciplina.setDiciplina1("Matematica");
-		diciplina.setDiciplina2("Portugues");
-		diciplina.setDiciplina3("Historia");
-		diciplina.setDiciplina4("Fisica");
-		criaMedia();
+		
+		
 	}
 	
 	public Aluno(){
@@ -94,12 +89,14 @@ public class Aluno {
 		return media >= aprovacaoMin?aprovacao:media >= recuperacaoMin?recuperacao:reprovacao;
 	}
 	
-	public double criaMedia(){
-		media = (diciplina.getNota1() + diciplina.getNota2() + diciplina.getNota3() + diciplina.getNota4()) / 4;
-		return media;
-	}
+
 	
 	public double getMedia() {
+		double somaNotas = 0.0;
+		for(Diciplina diciplina: diciplinas) {
+			somaNotas += diciplina.getNota();
+		}
+		media = somaNotas/diciplinas.size();
 		return media;
 	}
 
