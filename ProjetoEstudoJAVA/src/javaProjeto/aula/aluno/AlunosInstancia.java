@@ -92,6 +92,7 @@ public class AlunosInstancia {
 				System.out.println("media: " + aluno.getMedia());
 				System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
 				System.out.println("----------------------------------------------");
+				break;
 			}
 		}
 		
