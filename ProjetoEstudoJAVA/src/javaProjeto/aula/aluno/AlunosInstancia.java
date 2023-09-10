@@ -69,28 +69,30 @@ public class AlunosInstancia {
 		alunos.add(aluno);
 		continuaPessoa = JOptionPane.showConfirmDialog(null, "Deseja continuar inserindo outra pessoa?");
 		}
-		
+		String nomeEscolhido = JOptionPane.showInputDialog("Digite o nome que dejas buscar");
 		for(Aluno aluno: alunos){
-			System.out.println(aluno);
-			System.out.println("----------------------------------------------");
-			System.out.println("Dados cadastrais:");
-			System.out.println("nome do aluno: " + aluno.getNome());
-			System.out.println("Data da matricula: " + aluno.getDataMatricula());
-			System.out.println("Data de nascimento: " + aluno.getDataNascimento());
-			System.out.println("Idadde: "+aluno.getIdade());
-			System.out.println("Nome da escola" + aluno.getNomeEscola());
-			System.out.println("Nome da mãe:" + aluno.getNomeMae());
-			System.out.println("Nome do pai" + aluno.getNomePai());
-			System.out.println("Registro geral: " + aluno.getRegistrogeral());
-			System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
-			System.out.println("----------------------------------------------");
-			System.out.println("Resultado das notas do Aluno");
-			for(int i = 0; i<aluno.getDiciplinas().size();i++){
-				System.out.println("Diciplina - "+(i+1)+" :" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
+			if(aluno.getNome().equalsIgnoreCase(nomeEscolhido)) {
+				System.out.println(aluno);
+				System.out.println("----------------------------------------------");
+				System.out.println("Dados cadastrais:");
+				System.out.println("nome do aluno: " + aluno.getNome());
+				System.out.println("Data da matricula: " + aluno.getDataMatricula());
+				System.out.println("Data de nascimento: " + aluno.getDataNascimento());
+				System.out.println("Idadde: "+aluno.getIdade());
+				System.out.println("Nome da escola" + aluno.getNomeEscola());
+				System.out.println("Nome da mãe:" + aluno.getNomeMae());
+				System.out.println("Nome do pai" + aluno.getNomePai());
+				System.out.println("Registro gearal: " + aluno.getRegistrogeral());
+				System.out.println("Serie matriculado: " + aluno.getSerieMatriculado());
+				System.out.println("----------------------------------------------");
+				System.out.println("Resultado das notas do Aluno");
+				for(int i = 0; i<aluno.getDiciplinas().size();i++){
+					System.out.println("Diciplina - "+(i+1)+" :" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
+				}
+				System.out.println("media: " + aluno.getMedia());
+				System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
+				System.out.println("----------------------------------------------");
 			}
-			System.out.println("media: " + aluno.getMedia());
-			System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
-			System.out.println("----------------------------------------------");
 		}
 		
 		
