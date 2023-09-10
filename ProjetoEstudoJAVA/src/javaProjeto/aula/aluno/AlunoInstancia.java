@@ -6,7 +6,7 @@ public class AlunoInstancia {
 
 
 	public static void main(String[] args) {
-		
+		fdgdfg
 		int idade = Integer.parseInt(JOptionPane.showInputDialog("Idade:"));		
 		String nome = JOptionPane.showInputDialog("Nome:");	
 		String dataMatricula = JOptionPane.showInputDialog("Data Matricula:");
