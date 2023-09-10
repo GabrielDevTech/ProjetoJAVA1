@@ -44,6 +44,18 @@ public class AlunoInstancia {
 			aluno.getDiciplinas().add(diciplina);
 		}
 		
+		int removerDiciplina = JOptionPane.showConfirmDialog(null, "Deseja remover diciplina(s)?");
+		
+		if(removerDiciplina == 0) {
+			while(removerDiciplina == 0) {
+				String diciplinaRemoveStr = JOptionPane.showInputDialog("Qual indice da diciplina que deseja remover(apartir do 1):");
+				int indiceDiciplina = Integer.valueOf(diciplinaRemoveStr)-1;
+				aluno.getDiciplinas().remove(indiceDiciplina);
+				removerDiciplina = JOptionPane.showConfirmDialog(null, "Deseja remover outro");
+				
+				}
+			}
+		
 		
 		
 		System.out.println(aluno);
@@ -60,7 +72,7 @@ public class AlunoInstancia {
 		System.out.println("----------------------------------------------");
 		System.out.println("Resultado das notas do Aluno");
 		for(int i = 0; i<aluno.getDiciplinas().size();i++){
-			System.out.println("Diciplina:" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
+			System.out.println("Diciplina - "+(i+1)+" :" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
 		}
 		System.out.println("media: " + aluno.getMedia());
 		System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));

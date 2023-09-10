@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class Aluno {
 	
-	
 	private int idade;
 	private String nome;
 	private String dataNascimento;
