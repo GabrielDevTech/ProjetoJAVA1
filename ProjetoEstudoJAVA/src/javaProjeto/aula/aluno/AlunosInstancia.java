@@ -95,10 +95,24 @@ public class AlunosInstancia {
 				break;
 			}
 		}
-		
-		
-		
-		
-	}
+		int desejaExcluir = JOptionPane.showConfirmDialog(null, "Deseja excuir algum aluno");
+		if(desejaExcluir == 0) {
+			String excluirAluno = JOptionPane.showInputDialog("qual aluno deseja excluir");
+			for(Aluno aluno2: alunos){
+				if(aluno2.getNome().equalsIgnoreCase(excluirAluno)) {
+					alunos.remove(aluno2);
+					break;
+				}
+				
+			}
+			
+		}
+		System.out.println("imprimindo lista pelo indice");
+		for(int indice = 0; indice < alunos.size(); indice++) {
+			Aluno aluno = alunos.get(indice);
+			System.out.println((indice+1) + ") Aluno:"+ aluno.getNome());
+			
+		}
 
+	}
 }
