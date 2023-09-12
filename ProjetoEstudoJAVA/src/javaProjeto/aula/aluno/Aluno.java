@@ -29,7 +29,7 @@ public class Aluno {
 		return diciplinas;
 	}
 
-	public void setDiciplina(List<Diciplina> diciplina) {
+	public void setDiciplinas(List<Diciplina> diciplina) {
 		this.diciplinas = diciplina;
 	}
 

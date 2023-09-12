@@ -13,9 +13,6 @@ public class AlunosInstancia {
 		int continuaPessoa = 0;
 		while(continuaPessoa == 0) {
 			
-			
-			
-			
 			int idade = Integer.parseInt(JOptionPane.showInputDialog("Idade:"));		
 			String nome = JOptionPane.showInputDialog("Nome:");	
 			String dataMatricula = JOptionPane.showInputDialog("Data Matricula:");
@@ -62,15 +59,13 @@ public class AlunosInstancia {
 					}
 				}
 			
-			
-			
-			
-			
-		alunos.add(aluno);
-		continuaPessoa = JOptionPane.showConfirmDialog(null, "Deseja continuar inserindo outra pessoa?");
+			alunos.add(aluno);
+			continuaPessoa = JOptionPane.showConfirmDialog(null, "Deseja continuar inserindo outra pessoa?");
 		}
+		
 		String nomeEscolhido = JOptionPane.showInputDialog("Digite o nome que dejas buscar");
-		for(Aluno aluno: alunos){
+		for(int pos = 0; pos < alunos.size(); pos++ ){
+			Aluno aluno = alunos.get(pos);
 			if(aluno.getNome().equalsIgnoreCase(nomeEscolhido)) {
 				System.out.println(aluno);
 				System.out.println("----------------------------------------------");
@@ -92,6 +87,18 @@ public class AlunosInstancia {
 				System.out.println("media: " + aluno.getMedia());
 				System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
 				System.out.println("----------------------------------------------");
+				
+				JOptionPane.showMessageDialog(null, "Trocando o Aluno: "+aluno.getNome());
+				
+				Aluno trocar = new Aluno();
+				Diciplina diciplina = new Diciplina();
+				
+				diciplina.setDiciplina("matematica");
+				diciplina.setNota(90);
+
+				trocar.getDiciplinas().add(diciplina);
+				trocar.setNome("Biel");
+				alunos.set(pos, trocar);
 				break;
 			}
 		}
