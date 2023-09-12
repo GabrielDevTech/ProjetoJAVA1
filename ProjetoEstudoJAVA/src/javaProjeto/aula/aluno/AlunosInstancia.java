@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import javaProjeto.aula.constante.StatusAluno;
+
 public class AlunosInstancia {
 
 	public static void main(String[] args) {
@@ -85,7 +87,7 @@ public class AlunosInstancia {
 					System.out.println("Diciplina - "+(i+1)+" :" + aluno.getDiciplinas().get(i).getDiciplina() + " nota:" + aluno.getDiciplinas().get(i).getNota());
 				}
 				System.out.println("media: " + aluno.getMedia());
-				System.out.println(aluno.strAprovacao("O aluno foi aprovado.", "O aluno ficou de recuperação.", "O aluno foi reprovado."));
+				System.out.println(aluno.strAprovacao(StatusAluno.APROVADO, StatusAluno.RECUPERACAO, StatusAluno.REPROVADO));
 				System.out.println("----------------------------------------------");
 				
 				JOptionPane.showMessageDialog(null, "Trocando o Aluno: "+aluno.getNome());
