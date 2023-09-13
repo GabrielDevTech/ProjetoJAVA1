@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javaProjeto.aula.constante.StatusAluno;
+
 public class Aluno {
 	
 	
@@ -89,7 +91,9 @@ public class Aluno {
 		return media >= aprovacaoMin?aprovacao:media >= recuperacaoMin?recuperacao:reprovacao;
 	}
 	
-
+	public String strAprovacao(){
+		return getMedia() >= aprovacaoMin?StatusAluno.APROVADO: getMedia() >= recuperacaoMin? StatusAluno.RECUPERACAO:StatusAluno.REPROVADO;
+	}
 	
 	public double getMedia() {
 		double somaNotas = 0.0;
