@@ -4,7 +4,7 @@ public class ContaBancaria {
 
 	private String descricao;
 	
-	double saldo;
+	double saldo = 8000;
 	
 	public void soma100Reais() {
 		saldo += 100;
@@ -18,6 +18,11 @@ public class ContaBancaria {
 		saldo -= saque;
 	}
 	
+	@Override
+	public String toString() {
+		return "ContaBancaria [descricao=" + descricao + ", saldo=" + saldo + "]";
+	}
+
 	public void depositarDinheiro(double deposito) {
 		saldo += deposito;
 	}
