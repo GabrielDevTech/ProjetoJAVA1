@@ -1,4 +1,4 @@
-package javaProjeto.aula.aluno;
+package javaProjeto.aula.classeHeranca;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,6 @@ import javaProjeto.aula.constante.StatusAluno;
 
 public class Aluno extends Pessoa{
 	
-	
-	
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
@@ -17,6 +15,11 @@ public class Aluno extends Pessoa{
 	private final double aprovacaoMin = 70;
 	private final double recuperacaoMin = 50;
 	private List<Diciplina> diciplinas =  new ArrayList<Diciplina>();
+	
+	@Override
+	public double salario() {
+		return 1500.90;
+	}
 	
 	public double getRecuperacaoMin() {
 		return recuperacaoMin;
@@ -191,7 +194,14 @@ public class Aluno extends Pessoa{
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
 	}
+	@Override
+	public boolean pessoaMaiorIdade() {
+		return idade >= 21;
+	}
 	
+	public String msgMaiorIdade() {
+		return pessoaMaiorIdade() ? "Obaa aluno é maior de idade" : "Ixii vc é menor de idade";
+	}
 	
 	
 	
