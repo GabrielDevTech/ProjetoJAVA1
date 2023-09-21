@@ -1,8 +1,11 @@
 package javaProjeto.aula.executavel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -11,12 +14,18 @@ import javaProjeto.aula.classeHeranca.Aluno;
 import javaProjeto.aula.classeHeranca.Diciplina;
 import javaProjeto.aula.classeHeranca.Secretario;
 import javaProjeto.aula.constante.StatusAluno;
+import javaProjeto.aula.excecao.ExecaoProcessarNotas;
 import javaProjeto.aula.classesAuxiliares.FuncaoAutenticacao;
 
 public class AlunosInstancia3 {
 
 	public static void main(String[] args) {
+		
+		
 		try {
+			
+			buscarArquivo();
+			
 			String login = JOptionPane.showInputDialog("informe o login:");
 			String senha = JOptionPane.showInputDialog("informe a senha:");
 			
@@ -151,8 +160,20 @@ public class AlunosInstancia3 {
 			JOptionPane.showMessageDialog(null, "oppa o nul pointer exception:" + e.getClass());
 		}catch(Exception e) {
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+		}finally {
+			System.out.println("Sempre é executado");
 		}
 				
+	}
+	
+	public static void buscarArquivo() throws ExecaoProcessarNotas {
+		try {
+			File file =new File("c://lies.txt");
+			Scanner scanner = new Scanner(file);
+			}catch (FileNotFoundException e){
+				throw new ExecaoProcessarNotas(e.getMessage());
+			}
 	}
 		
 }
