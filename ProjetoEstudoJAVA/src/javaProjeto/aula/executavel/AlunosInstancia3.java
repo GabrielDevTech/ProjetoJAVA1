@@ -169,7 +169,7 @@ public class AlunosInstancia3 {
 	
 	public static void buscarArquivo() throws ExecaoProcessarNotas {
 		try {
-			File file =new File("c://lies.txt");
+			File file = new File("c://lines.txt");
 			Scanner scanner = new Scanner(file);
 			}catch (FileNotFoundException e){
 				throw new ExecaoProcessarNotas(e.getMessage());
