@@ -67,11 +67,15 @@ public class AlunosInstancia3 {
 		
 					for (int i = 0; i < numMateria; i++) {
 						String diciplinaNome = JOptionPane.showInputDialog("Digite o nome da matéria");
-						String notaStr = JOptionPane.showInputDialog("Digite a nota (de 0 a 100)");
-		
-						double nota = Double.parseDouble(notaStr);
-		
-						Diciplina diciplina = new Diciplina(diciplinaNome, nota);
+						
+						
+						double[] notas = new double[4];
+						for(int pos = 0;pos < notas.length; pos++) {
+							String notaStr = JOptionPane.showInputDialog("Digite a "+ (pos+1) +"º nota de 0 a 100");
+							notas[pos] = Double.valueOf(notaStr);
+						}
+						
+						Diciplina diciplina = new Diciplina(diciplinaNome, notas);
 						aluno.getDiciplinas().add(diciplina);
 					}
 		
